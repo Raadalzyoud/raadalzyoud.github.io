@@ -1,9 +1,8 @@
 ---
-layout: categories
+layout: page
 icon: fas fa-stream
 order: 1
 ---
-
 Explore different categories of content:
 
 - **Web** – Web security challenges and exploits  
