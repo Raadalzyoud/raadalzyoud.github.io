@@ -5,6 +5,6 @@ order: 1
 ---
 Explore different categories of content:
 
-- **Web** – Web security challenges and exploits  
-- **Reverse** – Reverse engineering write-ups and analysis  
-- **Forensics** – Forensics investigations and techniques
+- **Web** – [why-ctf-2025 Write-up] (https://raadalzyoud.github.io/_posts/2025-08-14-why-ctf-2025.md)
+- **Reverse**  
+- **Forensics**
