@@ -174,8 +174,6 @@ During the attack, the script outputs:
 [+] Words tested: 83/208 - Attempts per minute: 177 - Estimated time remaining: 42 seconds
 [+] Current attempt: PASSWORD
 ```
-![Confused Guy](https://media.tenor.com/images/…/confused-black-guy-what-akward.gif)
-
 5. **Password Found**
 
 The brute-force attack successfully identified the master password:
