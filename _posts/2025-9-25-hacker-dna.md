@@ -117,3 +117,106 @@ The Book Cipher Challenge is a **classical cryptography challenge**. By systemat
 > The actual flag depends on the full reference text provided.
 
 ![Desktop View](/book2.png){: width="600" height="350" }
+
+---
+
+## KeePass Breaker
+You can view the KeePass Breaker [here](https://hackerdna.com/labs/keepass-breaker).
+![Desktop View](/keepass1.png){: width="600" height="350" }
+
+---
+
+# Challenge Overview
+
+**Objective :** Crack a modern KeePass 4.x encrypted vault and extract the hidden flag.  
+
+This challenge provides a KeePass 4 `.kdbx` database (`challenge_vault.kdbx`) encrypted with a master password. The flag is stored as a password entry inside the vault.  
+
+**Hint:** The flag is stored as a password entry inside the encrypted vault.  
+
+---
+
+# Tools Used
+
+- [keepass4brute](https://github.com/r3nt0n/keepass4brute) – a modern KeePass 4 brute-force tool.  
+- A `wordlist.txt` containing candidate passwords.  
+- Kali Linux environment for running the brute-force attack.  
+
+---
+
+# Methodology
+
+1. **Setup Environment**
+
+```bash
+git clone https://github.com/r3nt0n/keepass4brute
+cd keepass4brute
+chmod +x keepass4brute.sh
+```
+
+2. **Prepare Wordlist**
+
+Use a simple wordlist or a custom dictionary containing common passwords, e.g., `wordlist.txt`.
+
+3. **Run the Brute Force Attack**
+
+```bash
+./keepass4brute.sh challenge_vault.kdbx wordlist.txt
+```
+
+The tool iterates through the wordlist, testing each password against the encrypted KeePass vault.  
+
+4. **Monitor Progress**
+
+During the attack, the script outputs:
+
+```
+[+] Words tested: 83/208 - Attempts per minute: 177 - Estimated time remaining: 42 seconds
+[+] Current attempt: PASSWORD
+```
+![Confused Guy](https://media.tenor.com/images/…/confused-black-guy-what-akward.gif)
+
+5. **Password Found**
+
+The brute-force attack successfully identified the master password:
+
+```
+[*] Password found: PASSWORD
+```
+
+---
+
+# Accessing the Vault
+
+Once the password is recovered, open the KeePass database using:
+
+```bash
+keepassxc challenge_vault.kdbx
+```
+
+Or programmatically using Python:
+
+```python
+from pykeepass import PyKeePass
+
+kp = PyKeePass('challenge_vault.kdbx', password='PASSWORD')
+for entry in kp.entries:
+    print(entry.title, entry.username, entry.password)
+```
+
+The flag can then be retrieved from the corresponding password entry.
+
+---
+
+# Key Takeaways
+
+- KeePass 4.x vaults use strong AES encryption, but weak master passwords remain a critical vulnerability.  
+- Modern tools like `keepass4brute` simplify cracking in CTF or lab environments when legal and permitted.  
+- Always use strong, unique master passwords for password managers to mitigate brute-force attacks.  
+- This challenge reinforces both offensive and defensive cybersecurity skills, emphasizing password security assessment.  
+
+---
+
+**Flag:** Stored inside the vault entry (retrievable using the cracked password `PASSWORD`).
+
+![Desktop View](/kekeepass2.png){: width="600" height="350" }
