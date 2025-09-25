@@ -51,19 +51,19 @@ Line 8: It is a matter of life and death, a road either to safety or to ruin.
 
 # How the Cipher Works
 
-1. Each triplet `[Line:Word:Letter]` refers to:
+Each triplet `[Line:Word:Letter]` refers to:
    - **Line** number in the reference text (including blank lines)
    - **Word** number in that line
    - **Letter** number in that word
 
-2. Example decoding:
+Example decoding:
 
 - Cipher: `5:4:1`
 - Line 5: `"Note: Reference numbers 0123456789 and symbols -_@#$%^&*()+={}[]|;:'"<>,.?/"`
 - Word 4 → `"0123456789"`
 - Letter 1 → `"0"`
 
-3. Decoding each triplet sequentially reconstructs the hidden message.
+Decoding each triplet sequentially reconstructs the hidden message.
 
 ---
 
@@ -146,7 +146,7 @@ This challenge provides a KeePass 4 `.kdbx` database (`challenge_vault.kdbx`) en
 
 # Methodology
 
-1. **Setup Environment**
+**Setup Environment**
 
 ```bash
 git clone https://github.com/r3nt0n/keepass4brute
@@ -154,11 +154,11 @@ cd keepass4brute
 chmod +x keepass4brute.sh
 ```
 
-2. **Prepare Wordlist**
+**Prepare Wordlist**
 
 Use a simple wordlist or a custom dictionary containing common passwords, e.g., `wordlist.txt`.
 
-3. **Run the Brute Force Attack**
+**Run the Brute Force Attack**
 
 ```bash
 ./keepass4brute.sh challenge_vault.kdbx wordlist.txt
@@ -166,7 +166,7 @@ Use a simple wordlist or a custom dictionary containing common passwords, e.g., 
 
 The tool iterates through the wordlist, testing each password against the encrypted KeePass vault.  
 
-4. **Monitor Progress**
+**Monitor Progress**
 
 During the attack, the script outputs:
 
@@ -174,7 +174,7 @@ During the attack, the script outputs:
 [+] Words tested: 83/208 - Attempts per minute: 177 - Estimated time remaining: 42 seconds
 [+] Current attempt: PASSWORD
 ```
-5. **Password Found**
+**Password Found**
 
 The brute-force attack successfully identified the master password:
 
