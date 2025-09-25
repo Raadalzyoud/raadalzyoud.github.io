@@ -9,6 +9,7 @@ comments: true
 media_subpath: /assets/hackerdna/
 ---
 ## Book Cipher Challenge
+You can view the Book Cipher Challenge [here](https://hackerdna.com/labs/book-cipher-challenge).
 ![Desktop View](/book1.png){: width="600" height="350" }
 
 # Challenge Overview
@@ -42,7 +43,6 @@ Line 1: The Art of War by Sun Tzu
 Line 5: Note: Reference numbers 0123456789 and symbols -_@#$%^&*()+={}[]|;:'"<>,.?/
 Line 7: Sun Tzu said: The art of war is of vital importance to the State.
 Line 8: It is a matter of life and death, a road either to safety or to ruin.
-...
 ```
 
 > **Note:** Full reference text is available in `reference_text.txt` provided in the challenge.
