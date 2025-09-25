@@ -9,7 +9,7 @@ comments: true
 media_subpath: /assets/hackerdna/
 ---
 ## Book Cipher Challenge
-![Desktop View](/hackerdna/book1.png){: width="600" height="350" }
+![Desktop View](/book1.png){: width="600" height="350" }
 
 # Challenge Overview
 This challenge presents a **book cipher**, a classical cryptography technique. The encrypted message is a series of **triplets** in the format: `Line:Word:Letter`.
@@ -116,4 +116,4 @@ The Book Cipher Challenge is a **classical cryptography challenge**. By systemat
 
 > The actual flag depends on the full reference text provided.
 
-![Desktop View](/hackerdna/book2.png){: width="600" height="350" }
+![Desktop View](/book2.png){: width="600" height="350" }
