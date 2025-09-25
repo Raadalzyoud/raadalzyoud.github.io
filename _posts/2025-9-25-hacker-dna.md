@@ -219,4 +219,4 @@ The flag can then be retrieved from the corresponding password entry.
 
 **Flag:** Stored inside the vault entry (retrievable using the cracked password `PASSWORD`).
 
-![Desktop View](/kekeepass2.png){: width="600" height="350" }
+![Desktop View](/keepass2.png){: width="600" height="350" }
