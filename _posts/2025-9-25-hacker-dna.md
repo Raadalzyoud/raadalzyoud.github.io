@@ -295,13 +295,13 @@ This challenge simulates a professional corporate site that hides an administrat
 # Tools 
 **ffuf** — fast web fuzzer for directory / file discovery.
 **wordlist** used : `/usr/share/wordlists/dirb/common.txt`
-```txt
+```text
 ffuf -u http://18.201.25.216/FUZZ -w /usr/share/wordlists/dirb/common.txt
 ```
 
 ---
  # Output 
- ```txt
+ ```text
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
