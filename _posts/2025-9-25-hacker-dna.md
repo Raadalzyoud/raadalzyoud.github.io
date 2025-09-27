@@ -288,7 +288,7 @@ You can view the Corporate Directory Hunt Lab [here](https://hackerdna.com/labs/
 ---
 
 # Summary
-This challenge simulates a professional corporate site that hides an administrative interface in an obscure directory. The objective was to perform directory discovery against http://18.201.25.216/, find any hidden admin panels, and extract the flag when an administrative area is located.
+This challenge simulates a professional corporate site that hides an administrative interface in an obscure directory. The objective was to perform directory discovery against http://Lab_Instance/, find any hidden admin panels, and extract the flag when an administrative area is located.
 
 ---
 
@@ -296,7 +296,7 @@ This challenge simulates a professional corporate site that hides an administrat
 **ffuf** — fast web fuzzer for directory / file discovery.
 **wordlist** used : `/usr/share/wordlists/dirb/common.txt`
 ```text
-ffuf -u http://18.201.25.216/FUZZ -w /usr/share/wordlists/dirb/common.txt
+ffuf -u http://Lab_Instance/FUZZ -w /usr/share/wordlists/dirb/common.txt
 ```
 
 ---
@@ -314,7 +314,7 @@ ffuf -u http://18.201.25.216/FUZZ -w /usr/share/wordlists/dirb/common.txt
 ________________________________________________
 
  :: Method           : GET
- :: URL              : http://18.201.25.216/FUZZ
+ :: URL              : http://Lab_Instance/FUZZ
  :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
  :: Follow redirects : false
  :: Calibration      : false
@@ -329,7 +329,7 @@ SECRET DIR                [Status: 301, Size: 169, Words: 5, Lines: 8, Duration:
 :: Progress: [4614/4614] :: Job [1/1] :: 337 req/sec :: Duration: [0:00:09] :: Errors: 0 ::
 ```
 
-Visiting http://18.201.25.216/SECRET_DIR/ revealed an administrative panel page with system information and the flag.
+Visiting http://Lab_Instance/SECRET_DIR/ revealed an administrative panel page with system information and the flag.
 ![Desktop View](/TechCorp.png){: width="600" height="350" }
 
 ---
