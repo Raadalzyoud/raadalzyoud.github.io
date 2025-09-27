@@ -279,3 +279,62 @@ probe: !!python/object/apply:subprocess.getoutput
 **Output :** `{'application': {'name': 'MyApp'}, 'probe': 'FLAG'}`
 ![Desktop View](/YAML2.png){: width="600" height="350" }
 
+---
+
+## Corporate Directory Hunt
+You can view the Corporate Directory Hunt Lab [here](https://hackerdna.com/labs/corporate-directory-hunt).
+![Desktop View](/Corporate1.png){: width="600" height="350" }
+
+---
+
+# Summary
+This challenge simulates a professional corporate site that hides an administrative interface in an obscure directory. The objective was to perform directory discovery against http://18.201.25.216/, find any hidden admin panels, and extract the flag when an administrative area is located.
+
+---
+
+# Tools 
+**ffuf** — fast web fuzzer for directory / file discovery.
+**wordlist** used : `/usr/share/wordlists/dirb/common.txt`
+```txt
+ffuf -u http://18.201.25.216/FUZZ -w /usr/share/wordlists/dirb/common.txt
+```
+
+---
+ # Output 
+ ```txt
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://18.201.25.216/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+                        [Status: 200, Size: 16609, Words: 6596, Lines: 520, Duration: 78ms]
+index.html              [Status: 200, Size: 16609, Words: 6596, Lines: 520, Duration: 74ms]
+SECRET DIR                [Status: 301, Size: 169, Words: 5, Lines: 8, Duration: 74ms]
+:: Progress: [4614/4614] :: Job [1/1] :: 337 req/sec :: Duration: [0:00:09] :: Errors: 0 ::
+```
+
+Visiting http://18.201.25.216/SECRET_DIR/ revealed an administrative panel page with system information and the flag.
+![Desktop View](/TechCorp.png){: width="600" height="350" }
+
+---
+
+![Desktop View](/Corporate2.png){: width="600" height="350" }
+
+
+
