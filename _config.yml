@@ -16,7 +16,7 @@ timezone: Asia/Amman
 
 title: 'Ra''ad Alzyoud' # the main title
 
-tagline: CTF Player  # it will display as the subtitle
+tagline: 'Cyber Security Student | CTF Player | Bug Bounty Hunter'  # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
