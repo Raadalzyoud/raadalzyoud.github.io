@@ -6,3 +6,4 @@ order: 1
 - **Web**
 - **Reverse**  
 - **Forensics**
+- **Crypto**
